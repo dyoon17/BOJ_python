@@ -1,3 +1,5 @@
+# 1021. 회전하는 큐
+
 n, m = map(int, input().split())  # 큐의 크기 n, 뽑아내려고 하는 수의 개수 m
 positions = list(map(int, input().split()))  # 뽑아내려고 하는 수가 저장된 리스트 생성
 
