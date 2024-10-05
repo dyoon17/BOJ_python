@@ -1,3 +1,5 @@
+# 3190. 뱀
+
 from collections import deque  
 
 n = int(input())    # 보드의 크기 n
