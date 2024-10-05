@@ -1,18 +1,19 @@
-n,k = map(int, input().split())  # n과 k를 입력받아 각각 정수로 변환
+# 1158. 요세푸스 문제
 
-people = list(range(1, n+1))  # 1부터 n까지의 숫자를 리스트로 생성 (사람들을 나타냄)
-result = []  # 제거된 사람들의 순서를 담을 리스트 (최종적인 요세푸스 순열)
-index = 0  # 처음 시작할 때 제거할 사람의 인덱스 (0번째부터 시작..)
+n,k = map(int, input().split())  # n은 사람 수, k는 제거할 순번
 
-while people:  # 리스트가 비어있지 않은 동안 계속 반복
-    index = (index + k - 1) % len(people)  # 현재 인덱스에서 k번째 사람을 찾음 (원형임을 고려)
-    result.append(people.pop(index))  # 찾은 사람을 리스트에서 제거하고 결과 리스트에 추가
+people = list(range(1, n+1))  # 사람 수를 1부터 n까지 리스트로 생성
+result = []  # 제거된 사람들의 순서 리스트
+index = 0  # 첫번째 사람의 인덱스
 
-# 출력
-print("<", end="")  # 출력 형식에 맞게 "<" 먼저 출력
-for i in range(len(result)):  # 결과 리스트를 하나씩 출력
-    if i == len(result) - 1:  # 마지막 사람은 콤마 없이 출력
-        print(result[i], end="")
-    else:  # 마지막이 아닌 경우, 콤마와 함께 출력
-        print(result[i], end=", ")
-print(">")  # 마지막으로 ">"를 출력해서 마무리
+while people:  # 모든 사람이 제거될 때까지 계속 반복
+    index = (index + k - 1) % len(people)  # 현재 인덱스에서 k번째 사람을 찾음 (% 연산 사용: 원형 리스트임을 고려)
+    result.append(people.pop(index))  # 제거 후 결과 리스트에 추가
+
+print("<", end="")  # "<" 먼저 출력
+for i in range(len(result)):
+    if i == len(result) - 1: 
+        print(result[i], end="")     # 마지막 사람은 콤마 없이 출력
+    else:  
+        print(result[i], end=", ")    # 마지막 사람이 아닌 경우 콤마와 함께 출력
+print(">")  # 마지막으로 ">" 출력
