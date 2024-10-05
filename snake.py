@@ -16,10 +16,10 @@ for _ in range(k):  # 사과의 개수 k만큼 반복한다는 뜻
 
 # 방향 전환 정보 입력
 l = int(input())  # 뱀이 방향을 전환할 횟수 l
-directions = []  # 방향 전환 정보를 저장할 리스트 (시간, 방향)
+directions_info = []  # 방향 전환 정보를 저장할 리스트 (시간, 방향)
 for _ in range(l):  # 방향 전환 횟수 l만큼 반복
     x, c = input().split()  # x는 시간, c는 방향 (L: 왼쪽으로 90도 회전, D: 오른쪽으로 90도 회전)
-    directions.append((int(x), c))  # x는 정수형, c는 문자 그대로 저장(백준 입력창 참고)
+    directions_info.append((int(x), c))  # x는 정수형, c는 문자 그대로 저장(백준 입력창 참고)
 
 # 방향 설정: (행, 열)로 표시
 directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # 이동 방향: 오른쪽, 아래, 왼쪽, 위 순서
@@ -52,7 +52,7 @@ while True:
     if direction_index < len(directions_info) and time == directions_info[direction_index][0]:  # 현재 시간이 방향 바꿀 시간과 같을 때(방향을 바꿀 시간이 되었을 때)
         turn = directions_info[direction_index][1]  # 현재 방향 전환 정보('L' 또는 'D')
         # 뱀이 왼쪽으로 회전할지, 오른쪽으로 회전할지를 결정함
-      if turn == 'L':  # 왼쪽으로 90도 회전
+        if turn == 'L':  # 왼쪽으로 90도 회전
             current_direction = (current_direction - 1) % 4  # % 4 연산: 숫자가 0~3 사이에서 순환-> directions 리스트 참고해서 방향 확인
         else:  # 오른쪽으로 90도 회전
             current_direction = (current_direction + 1) % 4
