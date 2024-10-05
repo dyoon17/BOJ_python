@@ -1,6 +1,7 @@
 from collections import deque  
 
-n, k = map(int, input().split())  # 보드의 크기 n, 사과의 개수 k
+n = int(input())    # 보드의 크기 n
+k = int(input())    # 사과의 개수 k
 
 # 보드 생성
 board = []  # 빈 보드를 리스트로 생성
